@@ -5,7 +5,9 @@ cabal-version:       2.2
 name:                io-cache
 version:             0.1.0.0
 synopsis:            Cache for idempotent IO actions (loading a texture/font/sound file, etc)
--- description:
+description:         |
+    Allows the output of slow, expensive IO computations to be reused if the
+    result is needed again. See the README for details.
 homepage:            https://github.com/Solonarv/io-cache
 -- bug-reports:
 license:             MIT
@@ -16,12 +18,15 @@ maintainer:          nstamm@gmx.de
 category:            Data
 extra-source-files:  CHANGELOG.md
 
+source-repository head
+ type:     git
+ location: git://github.com/Solonarv/io-cache.git
+
 library
   exposed-modules:     IOCache
   -- other-modules:
   -- other-extensions:
-  build-depends:       base ^>=4.12.0.0
-                     , unordered-containers ^>= 0.2.9
-                     , hashable ^>= 1.2.7
   hs-source-dirs:      src
+  build-depends:       base ^>=4.12.0.0
+                     , dependent-map ^>= 0.2.4.0
   default-language:    Haskell2010
